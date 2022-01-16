@@ -3,7 +3,11 @@ import HomePage from "../pages/homepage";
 import DetailPage from "../pages/detail";
 import ProductPage from "../pages/product";
 import SignIn from "../components/Signin";
+import SignUp from "../components/Signup";
 import Dashboard from "../pages/dashboard";
+import Tintuc from "../pages/Tintuc";
+import Add from "../pages/add";
+import Edit from "../pages/edit";
 // import Header from "./components/header";
 
 const router = new Navigo("/", { linksSelector: "a" });
@@ -25,6 +29,9 @@ router.on({
     "/SignIn": () => {
         print(SignIn.render());
     },
+    "/SignUp": () => {
+        print(SignUp.render());
+    },
     "/news/:id": ({ data }) => { 
         const { id } = data;
         print(DetailPage.render(+id));
@@ -35,6 +42,16 @@ router.on({
     },
     "/dashboard": () => {
         print(Dashboard.render());
+    },
+    "/tintuc": () => {
+        print(Tintuc.render());
+    },
+    "/add": () => {
+        print(Add.render());
+    },
+    "/edit/:id": ({ data }) => {
+        const { id } = data;
+        print(Edit.render(+id));
     },
 });
 
